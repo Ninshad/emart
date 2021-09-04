@@ -1,14 +1,27 @@
 const express = require('express');
-const app = express();
-// const bodyParser = require('body-parser'); 
+const app = express(); 
 const mongoose = require('mongoose');
+const env = require('dotenv')
+
+
+
+env.config();
 
 const port = process.env.PORT || 9000;
 
+// Routes
+const authRoutes = require('./routes/auth');
+const adminRoutes = require('./routes/admin/auth');
+
+
+
+
 // middleware
-// app.use(bodyParser());
+
 
 app.use(express.json());  
+app.use('/api', authRoutes);
+app.use('/api', adminRoutes);
 
 // mongodb connection
 
@@ -18,29 +31,14 @@ mongoose.connect(
     
     useNewUrlParser: true,
     useUnifiedTopology: true
+    // useCreateIndex: true
 }
 ).then(() => {
     console.log("DB CONNECTED");
 });
 
 
-// const db = mongoose.connection;
 
-// db.once("open", () => {
-//     console.log("DB CONNECTED");
-// })
-
-// .then(()=> {
-//     console.log('Database connected');
-// });
-
-
-app.get('/',(req,res,next) => {
-    res.status(200).json({message:"Hello from server"});
-});
-app.post('/data',(req,res,next) => {
-    res.status(200).json({message:req.body});
-});
 
 
 
