@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express(); 
 const mongoose = require('mongoose');
-const env = require('dotenv')
+const env = require('dotenv');
+const cors = require('cors');
 
 
 
@@ -12,16 +13,18 @@ const port = process.env.PORT || 9000;
 // Routes
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin/auth');
+const productRoutes = require('./routes/product')
 
 
 
 
 // middleware
 
-
+app.use(cors());
 app.use(express.json());  
 app.use('/api', authRoutes);
 app.use('/api', adminRoutes);
+app.use('/api', productRoutes);
 
 // mongodb connection
 
