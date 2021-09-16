@@ -36,9 +36,9 @@ function Signup() {
         dispatch(signup(user))
     }
 
-    // if(auth.authenticate){
-    //     return <Redirect to={'/'} />
-    //   }
+    if(auth.authenticate){
+        return <Redirect to={'/'} />
+      }
 
     if(sign_up.loading){
         return <p>Loading...!</p>
@@ -47,6 +47,7 @@ function Signup() {
     return (
         <Layout>
             <Container>
+                { sign_up.message }
                 <Row style={{ marginTop: '50px' }}>
                     <Col md={{ span: 6, offset: 3 }}>
                         <Form onSubmit={userSignup} >

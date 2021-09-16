@@ -6,14 +6,14 @@ exports.createProduct = (req,res) => {
 
     // res.status(200).json({ file: req.files, body:req.body })
 
-    const {name, price, description, quantity, createdBy} = req.body;
-    let productPictures = [];
+    const {name, price, description, quantity, productPictures, createdBy} = req.body;
+    // let productPictures = [];
 
-    if(req.files.length> 0){
-        productPictures = req.files.map(file => {
-            return { img: file.filename }
-        })
-    }
+    // if(req.files.length> 0){
+    //     productPictures = req.files.map(file => {
+    //         return { img: file.filename }
+    //     })
+    // }
 
     const product = new Product({
         name: name,
@@ -22,7 +22,7 @@ exports.createProduct = (req,res) => {
         quantity,
         description,
         productPictures,
-        createdBy: req.user._id
+        // createdBy: req.user._id
 
     });
 

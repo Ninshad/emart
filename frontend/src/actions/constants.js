@@ -10,3 +10,9 @@ export const signupConstants = {
     SIGNUP_SUCCESS: 'SIGNUP_SUCCESS',
     SIGNUP_fAILURE: 'SIGNUP_FAILURE'
 }
+
+export const productConstants = {
+    PRODUCT_REQUEST: 'PRODUCT_REQUEST',
+    PRODUCT_SUCCESS: 'PRODUCT_SUCCESS',
+    PRODUCT_fAILURE: 'PRODUCT_FAILURE'
+}

@@ -8,15 +8,17 @@ export const signup = (user) =>{
     return async (dispatch) => {
 
         dispatch({ type: signupConstants.SIGNUP_REQUEST });
-        const res = await axios.post('/admin/signup', {
+        const res = await axios.post(`/admin/signup`, {
             ...user  
         })
+        console.log(res.data);
 
         if(res.status === 201){
             const { message } = res.data;
+            console.log(message);
             dispatch({
                 type: signupConstants.SIGNUP_SUCCESS,
-                payload: { message }
+                payload: {message}
             });
         }else{
             if(res.status === 400){

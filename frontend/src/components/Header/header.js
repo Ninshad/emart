@@ -7,6 +7,7 @@ import { signOut } from '../../actions/auth.actions';
 function Header() {
 
   const auth = useSelector(state => state.auth);  
+  
   const dispatch = useDispatch();
   
   const logout = () => {
@@ -41,7 +42,7 @@ function Header() {
 
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{zIndex:1}}>
         <Container>
           {/* <Navbar.Brand href="#home">Admin Dashboard</Navbar.Brand> */}
           <Link to="/" className="navbar-brand">Admin Dashboard</Link>

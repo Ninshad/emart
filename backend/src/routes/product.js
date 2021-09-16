@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
           cb(null, path.join(path.dirname(__dirname), 'uploads'))
         },
         filename: function (req, file, cb) {
-          cb(null, shortid.generat() +'-' + file.originalname)
+          cb(null, shortid.generate() +'-' + file.originalname)
         }
 })
 
@@ -20,6 +20,6 @@ const upload = multer({ storage });
 
 
 
-router.post('/product/create', requireSignin, adminMiddleware, upload.array('productPicture'), createProduct)
+router.post('/product/create',  upload.single('productPicture'), createProduct)
 
 module.exports = router;
