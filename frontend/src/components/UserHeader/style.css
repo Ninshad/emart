@@ -1,0 +1,25 @@
+.navMain{
+    display:"flex";
+    width:"100%";
+    justify-content: space-between;
+}
+.searchbar{
+    padding: 0 16px;
+    font-size: 14px;
+    height: 36px;
+    width: 100%;
+    
+}
+.searchbar input{
+    width: 40vw;
+    height: 6vh;
+    border: 0px;
+    outline : none;
+}
+.cart{
+    display: flex;
+    margin-left: 15vw;
+}
+.navDrop{
+    margin-left: 10vw;
+}

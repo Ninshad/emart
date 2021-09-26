@@ -50,14 +50,14 @@ function AddProduct() {
         <Layout>
             <Container>
 
-                <Row style={{ marginTop: '20px' }}>
+                <Row>
                     <Col md={{ span: 6, offset: 3 }}>
                        
 
 
                         {/* <Example /> */}
                         <>
-                        <Row style={{ textAlign: "center", marginTop:"50px", marginBottom:"30px" }}>
+                        <Row style={{ textAlign: "center", marginTop:"70px", marginBottom:"30px" }}>
                             <Col>
                             <h1>Welcome <span style={{color:"red"}}>{auth.user.firstName}!!</span> </h1>
                             
@@ -69,12 +69,12 @@ function AddProduct() {
                             </Row>
 
                         
-                            <Row style={{ textAlign: "center", marginTop:"50px", marginBottom:"30px" }}>
+                            <Row style={{ textAlign: "center", marginTop:"150px", marginBottom:"30px" }}>
                                 <h2>Add Product</h2>
                                 
                             </Row>
                             <Row>
-                                <Button variant="primary" onClick={handleShow} style={{ backgroundColor: "green", color: "white", border: "none", padding: "10px", marginTop: "10px" }}>
+                                <Button variant="primary" onClick={handleShow} style={{ backgroundColor: "green", color: "white", border: "none", padding: "10px", marginTop: "10px"}}>
                                     Add Product
                                 </Button>
                             </Row>

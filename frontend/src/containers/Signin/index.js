@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../../components/Layout/Layout'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import Input from '../../components/UI/Input/input'
-
-import { isUserLoggedIn, login } from '../../actions';
+import { login } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
 
@@ -13,22 +12,12 @@ function Signin() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
   const auth = useSelector(state => state.auth);
-
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if(!auth.authenticate){
-      dispatch(isUserLoggedIn());
-    }
-    
-  }, []);
-
   const userLogin = (e) => {
-
-    e.preventDefault();
+  e.preventDefault();
 
     const user = {
       email, password
@@ -38,46 +27,52 @@ function Signin() {
 
   }
 
-  if(auth.authenticate){
-    return <Redirect to={'/'} />
+  if (auth.authenticate) {
+    return <Redirect to={'/admin'} />
   }
 
   return (
-    <Layout>
-      <Container>
-        <Row style={{ marginTop: '50px' }}>
-          <Col md={{ span: 6, offset: 3 }}>
-            <Form onSubmit={userLogin}>
-              <Input
-                label="Email"
-                placeholder="Enter Email"
-                value={email}
-                type="email"
-                onChange={(e) => setEmail(e.target.value)}
-                errorMessage="We'll never share your email with anyone else."
+    <div>
+      <Row>
+        <Layout />
+      </Row>
 
-              />
-              <Input
-                label="Password"
-                placeholder="Password"
-                value={password}
-                type="Password"
-                onChange={(e) => setPassword(e.target.value)}
+      <Row style={{ marginTop: '100px' }}>
+        <Container>
+          <Row >
+            <Col md={{ span: 6, offset: 3 }}>
+              <Form onSubmit={userLogin}>
+                <Input
+                  label="Email"
+                  placeholder="Enter Email"
+                  value={email}
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  errorMessage="We'll never share your email with anyone else."
 
-              />
-              {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                />
+                <Input
+                  label="Password"
+                  placeholder="Password"
+                  value={password}
+                  type="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+
+                />
+                {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group> */}
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </Form>
-          </Col>
-        </Row>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form>
+            </Col>
+          </Row>
 
-      </Container>
+        </Container>
+      </Row>
+    </div>
 
-    </Layout>
   )
 }
 

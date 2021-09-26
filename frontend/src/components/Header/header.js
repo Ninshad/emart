@@ -42,10 +42,10 @@ function Header() {
 
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{zIndex:1}}>
-        <Container>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{zIndex:1, position:"fixed", width: "100%"}}>
+        <Container >
           {/* <Navbar.Brand href="#home">Admin Dashboard</Navbar.Brand> */}
-          <Link to="/" className="navbar-brand">Admin Dashboard</Link>
+          <Link to="/admin" className="navbar-brand">Admin Dashboard</Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">

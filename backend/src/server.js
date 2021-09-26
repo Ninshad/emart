@@ -13,7 +13,9 @@ const port = process.env.PORT || 9000;
 // Routes
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin/auth');
-const productRoutes = require('./routes/product')
+const productRoutes = require('./routes/product');
+const getProductRoutes = require('./routes/product');
+
 
 
 
@@ -25,6 +27,7 @@ app.use(express.json());
 app.use('/api', authRoutes);
 app.use('/api', adminRoutes);
 app.use('/api', productRoutes);
+app.use('/api', getProductRoutes);
 
 // mongodb connection
 

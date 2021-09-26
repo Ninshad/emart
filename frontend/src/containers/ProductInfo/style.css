@@ -1,0 +1,12 @@
+.firstCol{
+    margin-top: 7vh;
+}
+.secondCol{
+    margin-left: 6vw;
+    margin-top: 3vh;
+    
+}
+.secondCol h1{
+    text-align: center;
+    font-weight: bold;
+}

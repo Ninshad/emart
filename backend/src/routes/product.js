@@ -1,6 +1,6 @@
 const express = require('express');
 const { requireSignin, adminMiddleware } = require('../common-middleware');
-const { createProduct } = require('../controller/product');
+const { createProduct, getProducts,  deleteProducts, updateProducts, getProductInfo } = require('../controller/product');
 const multer = require('multer');
 const router = express.Router();
 const shortid = require('shortid');
@@ -20,6 +20,12 @@ const upload = multer({ storage });
 
 
 
-router.post('/product/create',  upload.single('productPicture'), createProduct)
+router.post('/product/create', upload.single('productPicture'), createProduct);
+router.post('/product/getproducts', getProducts);
+router.post('/product/deleteproduct', deleteProducts);
+router.post('/product/updateproduct', upload.single('productPicture'), updateProducts);
+router.post('/product/getproductinfo', getProductInfo);
+
+
 
 module.exports = router;

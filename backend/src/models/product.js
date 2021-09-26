@@ -23,11 +23,14 @@ const productSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    productPictures: [
-        { img: {
-            type: String
-        }}
-    ],
+    // productPictures: [
+    //     { img: {
+    //         type: String
+    //     }}
+    // ],
+    img: {
+        type: String
+    },
     reviews: [
         {
             userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
