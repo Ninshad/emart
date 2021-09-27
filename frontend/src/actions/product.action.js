@@ -12,7 +12,7 @@ export const addProduct = (form) => {
 export const getProducts = () => {
     return async (dispatch) => {
         dispatch({ type: getProductsConstants.GET_PRODUCT_REQUEST });
-        const res = await axios.post('/product/getproducts');
+        const res = await axios.get('/product/getproducts');
 
         console.log(res);
         if (res.status === 200) {

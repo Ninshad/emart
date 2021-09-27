@@ -21,10 +21,10 @@ const upload = multer({ storage });
 
 
 router.post('/product/create', upload.single('productPicture'), createProduct);
-router.post('/product/getproducts', getProducts);
+router.get('/product/getproducts', getProducts);
 router.post('/product/deleteproduct', deleteProducts);
 router.post('/product/updateproduct', upload.single('productPicture'), updateProducts);
-router.post('/product/getproductinfo', getProductInfo);
+router.get('/product/getproductinfo', getProductInfo);
 
 
 

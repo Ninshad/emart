@@ -8,7 +8,7 @@ const cors = require('cors');
 
 env.config();
 
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || PORT;
 
 // Routes
 const authRoutes = require('./routes/auth');
@@ -32,7 +32,7 @@ app.use('/api', getProductRoutes);
 // mongodb connection
 
 mongoose.connect( 
-    'mongodb+srv://admin:LCGI3wTBzeMTFMDH@cluster0.9ufms.mongodb.net/emart?retryWrites=true&w=majority',
+    `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.9ufms.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority`,
     {
     
     useNewUrlParser: true,
